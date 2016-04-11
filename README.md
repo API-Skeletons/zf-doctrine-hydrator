@@ -1,8 +1,7 @@
 zf-doctrine-hydrator
 ====================
 
-A collection of common hydrators for phpro/zf-doctrine-hydration-module
-written for use with zfcampus/zf-apigility-doctrine.
+A collection of common hydrators for `phpro/zf-doctrine-hydration-module` written for use with `zfcampus/zf-apigility-doctrine`.
 
 
 Strategy\CollectionExtract
