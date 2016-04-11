@@ -5,6 +5,9 @@
     "require": {
         "phpro/zf-doctrine-hydration-module": "^0.1.6"
     },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
     "license": "MIT",
     "authors": [
         {

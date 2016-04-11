@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./test/Bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="hydrators">
+            <directory>./test/Hydrator</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>.</directory>
+            <exclude>
+                <directory>./vendor</directory>
+                <directory>./test</directory>
+                <file>./config/module.config.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
