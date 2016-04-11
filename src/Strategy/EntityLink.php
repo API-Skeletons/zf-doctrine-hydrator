@@ -19,7 +19,6 @@ class EntityLink implements
     StrategyInterface
 {
     protected $metadataMap;
-    protected $filterKey;
 
     public function setMetadataMap(array $map)
     {
