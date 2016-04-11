@@ -1,0 +1,15 @@
+{
+    "name": "api-skeletons/zf-doctrine-hydrator",
+    "description": "A collection of common hydrators for phpro/zf-doctrine-hydration-module",
+    "type": "library",
+    "require": {
+        "phpro/zf-doctrine-hydration-module": "^0.1.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom H Anderson",
+            "email": "tom.h.anderson@gmail.com"
+        }
+    ]
+}
