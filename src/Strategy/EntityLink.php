@@ -6,6 +6,9 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 use Zend\Filter\FilterChain;
 use DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy;
 use ZF\Hal\Link\Link;
+use ZF\Hal\Entity as HalEntity;
+use ZF\Hal\Link\LinkCollection;
+use stdClass;
 
 /**
  * An entity-specific hydrator
@@ -41,7 +44,15 @@ class EntityLink implements
         $link->setRoute($entityMetadata['route_name']);
         $link->setRouteParams(array($identifierField => $value->{$identifierFieldGetter}()));
 
-        return $link;
+        $linkCollection = new LinkCollection();
+        $linkCollection->add($link);
+
+        $entity = new stdClass();
+        $halEntity = new HalEntity($entity);
+
+        $halEntity->setLinks($linkCollection);
+
+        return $halEntity;
     }
 
     public function hydrate($value)
