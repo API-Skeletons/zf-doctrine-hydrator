@@ -25,17 +25,55 @@ Will replace an entity with just a self link to the entity.  Use when a child is
 How to use these hydration strategies
 =====================================
 
-In your configuration for your Doctrine in Apigility API the `doctrine-hydrator` section add a strategy to an entity
+In your configuration for your Doctrine in Apigility API the `doctrine-hydrator` section add a strategy to an entity.  In this example an Artist is a member of a Band which, by example, is a many to one relationship (an artist can only have one band).
 
 ```php
     'doctrine-hydrator' => array(
-        'AdministrationApi\\V1\\Rest\\Administrator\\AdministratorHydrator' => array(
-            'entity_class' => 'Administration\\Entity\\Administrator',
+        'DatabaseApi\\V1\\Rest\\Album\\AlbumHydrator' => array(
+            'entity_class' => 'Database\\Entity\\Album',
             'object_manager' => 'doctrine.entitymanager.orm_default',
             'by_value' => true,
             'strategies' => array(
-                'fieldName' => 'ZF\Doctrine\Hydrator\Strategy\EntityLink',
+                'artist' => 'ZF\Doctrine\Hydrator\Strategy\EntityLink',
+            ),
+            'use_generated_hydrator' => true,
+        ),
+        'DatabaseApi\\V1\\Rest\\Artist\\ArtistHydrator' => array(
+            'entity_class' => 'Database\\Entity\\Artist',
+            'object_manager' => 'doctrine.entitymanager.orm_default',
+            'by_value' => true,
+            'strategies' => array(
+                'album' => 'ZF\Doctrine\Hydrator\Strategy\CollectionExtract',
             ),
             'use_generated_hydrator' => true,
         ),
 ```
+
+When an Artist is queried all Albums for the Artist will be returned.  For each Album the Artist will be returned only as a self link.  The result of a call to `https://api/artist/1` will look like:
+
+```json
+{
+    'name': 'Soft Cell',
+    '_embedded': {
+        'album': [
+            {
+                'name': 'Non-Stop Erotic Cabaret',
+                '_embedded': {
+                    'artist': {
+                        '_links': {
+                            'self': 'https://api/artist/1'
+                        }
+                    }
+                },
+                '_links': {
+                    'self': https://api/album/1'
+                }
+            }
+        ],
+    },
+    '_links': {
+        'self': 'https://api/artist/1'
+    }
+}
+```
+    
