@@ -82,7 +82,7 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                             "id": 1,
                             "name": "Frustration",
                             "_embedded": {
-                                "album":
+                                "album": {
                                     "_links": {
                                         "self": "https://api/album/1"
                                     }
@@ -93,7 +93,7 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                             "id": 2,
                             "name": "Tainted Love",
                             "_embedded": {
-                                "album":
+                                "album": {
                                     "_links": {
                                         "self": "https://api/album/1"
                                     }
