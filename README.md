@@ -78,29 +78,6 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                             "self": "https://api/song?filter%5B0%5D%5Bfield%5D=album&filter%5B0%5D%5Btype%5D=eq&filter%5B0%5D%5Bvalue%5D=1"
                         }
                     }
-                        {
-                            "id": 1,
-                            "name": "Frustration",
-                            "_embedded": {
-                                "album": {
-                                    "_links": {
-                                        "self": "https://api/album/1"
-                                    }
-                                }
-                            }
-                        }
-                        {
-                            "id": 2,
-                            "name": "Tainted Love",
-                            "_embedded": {
-                                "album": {
-                                    "_links": {
-                                        "self": "https://api/album/1"
-                                    }
-                                }
-                            }
-                        }
-                    ]
                 },
                 "_links": {
                     "self": "https://api/album/1"
