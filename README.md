@@ -13,7 +13,7 @@ Extract a collection.  Often when this is used the entities in the collection ha
 Strategy\CollectionLink
 -----------------------
 
-This strategy will replace a collection with just a self link to the collection.
+This strategy will replace a collection with just a self link to the collection.  It uses [`zfcampus/zf-doctrine-querybuilder`](https://github.com/API-Skeletons/zf-doctrine-querybuilder) to create a query for just the collection data.
 
 
 Strategy\EntityLink
@@ -29,12 +29,19 @@ In your configuration for your Doctrine in Apigility API the `doctrine-hydrator`
 
 ```php
     'doctrine-hydrator' => array(
+        'DatabaseApi\\V1\\Rest\\Album\\SongHydrator' => array(
+            'entity_class' => 'Database\\Entity\\Song',
+            'object_manager' => 'doctrine.entitymanager.orm_default',
+            'by_value' => true,
+            'use_generated_hydrator' => true,
+        ),
         'DatabaseApi\\V1\\Rest\\Album\\AlbumHydrator' => array(
             'entity_class' => 'Database\\Entity\\Album',
             'object_manager' => 'doctrine.entitymanager.orm_default',
             'by_value' => true,
             'strategies' => array(
                 'artist' => 'ZF\Doctrine\Hydrator\Strategy\EntityLink',
+                'song' => 'ZF\Doctrine\Hydrator\Strategy\CollectionLink',
             ),
             'use_generated_hydrator' => true,
         ),
@@ -65,7 +72,35 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                         "_links": {
                             "self": "https://api/artist/1"
                         }
+                    },
+                    "song": {
+                        "_links": {
+                            "self": "https://api/song?filter%5B0%5D%5Bfield%5D=album&filter%5B0%5D%5Btype%5D=eq&filter%5B0%5D%5Bvalue%5D=1"
+                        }
                     }
+                        {
+                            "id": 1,
+                            "name": "Frustration"
+                            "_embedded": {
+                                "album":
+                                    "_links": {
+                                        "self": "https://api/album/1"
+                                    }
+                                }
+                            }
+                        }
+                        {
+                            "id": 2,
+                            "name": "Tainted Love"
+                            "_embedded": {
+                                "album":
+                                    "_links": {
+                                        "self": "https://api/album/1"
+                                    }
+                                }
+                            }
+                        }
+                    ]
                 },
                 "_links": {
                     "self": "https://api/album/1"
@@ -78,4 +113,4 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
     }
 }
 ```
-    
+
