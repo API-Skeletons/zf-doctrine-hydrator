@@ -53,10 +53,12 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
 
 ```json
 {
+    "id": 1,
     "name": "Soft Cell",
     "_embedded": {
         "album": [
             {
+                "id": 1,
                 "name": "Non-Stop Erotic Cabaret",
                 "_embedded": {
                     "artist": {
