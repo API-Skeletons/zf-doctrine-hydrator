@@ -53,26 +53,26 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
 
 ```json
 {
-    'name': 'Soft Cell',
-    '_embedded': {
-        'album': [
+    "name": "Soft Cell",
+    "_embedded": {
+        "album": [
             {
-                'name': 'Non-Stop Erotic Cabaret',
-                '_embedded': {
-                    'artist': {
-                        '_links': {
-                            'self': 'https://api/artist/1'
+                "name": "Non-Stop Erotic Cabaret",
+                "_embedded": {
+                    "artist": {
+                        "_links": {
+                            "self": "https://api/artist/1"
                         }
                     }
                 },
-                '_links': {
-                    'self': https://api/album/1'
+                "_links": {
+                    "self": https://api/album/1"
                 }
             }
         ],
     },
-    '_links': {
-        'self': 'https://api/artist/1'
+    "_links": {
+        "self": "https://api/artist/1"
     }
 }
 ```
