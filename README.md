@@ -66,7 +66,7 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                     }
                 },
                 "_links": {
-                    "self": https://api/album/1"
+                    "self": "https://api/album/1"
                 }
             }
         ],
