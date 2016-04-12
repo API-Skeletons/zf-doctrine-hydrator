@@ -80,7 +80,7 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                     }
                         {
                             "id": 1,
-                            "name": "Frustration"
+                            "name": "Frustration",
                             "_embedded": {
                                 "album":
                                     "_links": {
@@ -91,7 +91,7 @@ When an Artist is queried all Albums for the Artist will be returned.  For each 
                         }
                         {
                             "id": 2,
-                            "name": "Tainted Love"
+                            "name": "Tainted Love",
                             "_embedded": {
                                 "album":
                                     "_links": {
