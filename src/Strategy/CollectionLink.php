@@ -5,7 +5,10 @@ namespace ZF\Doctrine\Hydrator\Strategy;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 use Zend\Filter\FilterChain;
 use DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy;
+use ZF\Hal\Link\LinkCollection;
+use ZF\Hal\Entity as HalEntity;
 use ZF\Hal\Link\Link;
+use stdClass;
 
 /**
  * A field-specific hydrator for collections.
@@ -57,7 +60,7 @@ class CollectionLink extends AbstractCollectionStrategy implements
 
         // Better way to create mapping name?
         // FIXME: use zf-hal collection_name
-        $link = new Link($filter($value->getMapping()['fieldName']));
+        $link = new Link('self');
         $link->setRoute($config['route_name']);
         $link->setRouteParams(array('id' => null));
 
@@ -75,7 +78,13 @@ class CollectionLink extends AbstractCollectionStrategy implements
             ),
         ));
 
-        return $link;
+        $linkCollection = new LinkCollection();
+        $linkCollection->add($link);
+
+        $halEntity = new HalEntity(new stdClass());
+        $halEntity->setLinks($linkCollection);
+
+        return $halEntity;
     }
 
     public function hydrate($value)
