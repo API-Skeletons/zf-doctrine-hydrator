@@ -13,6 +13,19 @@
         {
             "name": "Tom H Anderson",
             "email": "tom.h.anderson@gmail.com"
+        },
+        {
+            "name": "Marcelo Insabralde",
+            "email": "marcelominsabralde@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "ZF\\Doctrine\\Hydrator\\": "src/",
+            "ZFTest\\Doctrine\\Hydrator\\": "test/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
 }
