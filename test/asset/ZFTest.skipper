@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<skipper version="3.2.6.1309" mvc="Without MVC" orm="Doctrine2" name="ZFTest" uuid="c540e22f-2f2d-45c7-a4c9-06fe56b81536">
+  <module name="\MainBundle" local-name="MainBundle" namespace="\Db\Entity" local-namespace="Db\Entity" export-format="Doctrine2Xml" export-path="Db/config/orm" uuid="3a68ee79-a310-4d8d-8717-bb9d6527a2a4">
+    <entity name="\Db\Entity\Artist" local-name="Artist" namespace="\Db\Entity" uuid="d3d47421-dac5-4353-aae1-1b36de3dbfb0">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="d5a8302c-30f6-42bb-b13c-fc7ab82c8dd1"/>
+      <field name="name" type="string" size="255" uuid="30ebd273-3457-49bc-8f57-ded681983708"/>
+    </entity>
+    <entity name="\Db\Entity\Album" local-name="Album" namespace="\Db\Entity" uuid="f10342d5-0598-4ce5-911e-94673f4b9750">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="65a366d5-aa7f-449a-bd0b-9e09443d978e"/>
+      <field name="name" type="string" uuid="2506aef1-e534-4926-87c5-b24678bc05c2"/>
+      <field name="artist_id" type="integer" uuid="b16603cd-7cf4-4f2f-8c10-117df5955297"/>
+    </entity>
+    <association from="\Db\Entity\Album" to="\Db\Entity\Artist" caption="Artist Album" owner-alias="album" inverse-alias="artist" many-owner="true" many-inverse="false" uuid="809add22-0a9b-4467-90bc-1b7638cb0496">
+      <association-field from="artist_id" to="id"/>
+    </association>
+    <entity name="\Db\Entity\Song" local-name="Song" namespace="\Db\Entity" uuid="faba03de-8d87-40fd-94dd-8362eb6128b5">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="a45255db-3cff-4853-82e2-10dbd1b0bc9e"/>
+      <field name="name" uuid="8a439cca-397b-4bc6-93c2-54da6b215618"/>
+      <field name="album_id" type="integer" uuid="5849ba04-8dd9-4398-bfbd-ba669a7323a3"/>
+    </entity>
+    <association from="\Db\Entity\Song" to="\Db\Entity\Album" caption="Album Song" owner-alias="song" inverse-alias="album" many-owner="true" many-inverse="false" uuid="00ea4296-938f-4212-95fe-760b27619978">
+      <association-field from="album_id" to="id"/>
+    </association>
+  </module>
+  <visual-data>
+    <association uuid="00ea4296-938f-4212-95fe-760b27619978" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" color="#969696"/>
+    <association uuid="809add22-0a9b-4467-90bc-1b7638cb0496" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" color="#969696"/>
+    <entity uuid="d3d47421-dac5-4353-aae1-1b36de3dbfb0" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="12" position-y="46" size-x="0" size-x2="98" size-y="0" size-y2="45"/>
+    <entity uuid="f10342d5-0598-4ce5-911e-94673f4b9750" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="237" position-y="41" size-x="0" size-x2="20" size-y="0" size-y2="20"/>
+    <entity uuid="faba03de-8d87-40fd-94dd-8362eb6128b5" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="235" position-y="197" size-x="0" size-x2="96" size-y="0" size-y2="59"/>
+    <module uuid="3a68ee79-a310-4d8d-8717-bb9d6527a2a4" bg-color="#E7F5FD" position-x="61" position-y="72" size-x="11" size-x2="605" size-y="22" size-y2="440"/>
+    <project uuid="c540e22f-2f2d-45c7-a4c9-06fe56b81536" size-x="0" size-x2="735" size-y="0" size-y2="565"/>
+  </visual-data>
+</skipper>
