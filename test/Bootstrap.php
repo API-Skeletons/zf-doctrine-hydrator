@@ -30,16 +30,11 @@ class Bootstrap
         static::initAutoloader();
 
         // use ModuleManager to load this module and it's dependencies
-        $config = include __DIR__ . '/config/application.config.php';
-
-        $config['module_listener_options'] = array(
-            'module_paths' => $zf2ModulePaths,
-        );
+        $config = include __DIR__ . '/TestConfig.php';
 
         $serviceManager = new ServiceManager(new ServiceManagerConfig());
         $serviceManager->setService('ApplicationConfig', $config);
         $serviceManager->get('ModuleManager')->loadModules();
-
         static::$serviceManager = $serviceManager;
     }
 

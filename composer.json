@@ -6,12 +6,19 @@
         "phpro/zf-doctrine-hydration-module": "^0.1.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
         "zfcampus/zf-apigility-doctrine": "^2",
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*",
+        "zfcampus/zf-apigility": "*",
+        "zfcampus/zf-configuration": "*",
         "doctrine/doctrine-orm-module": "*",
+        "doctrine/data-fixtures": "*",
+        "zendframework/zend-test": "*",
         "zendframework/zend-serializer": "*",
         "zendframework/zend-log": "*",
-        "zendframework/Zend-i18n": "*"
+        "zendframework/zend-config": "*",
+        "zendframework/zend-console": "*",
+        "zendframework/zend-i18n": "*"
     },
     "license": "MIT",
     "authors": [

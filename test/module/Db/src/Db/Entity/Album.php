@@ -1,6 +1,6 @@
 <?php
 
-namespace ZFTestApigilityDb\Entity;
+namespace Db\Entity;
 
 class Album
 {
@@ -25,20 +25,6 @@ class Album
         return $this;
     }
 
-    protected $createdAt;
-
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\Datetime $value)
-    {
-        $this->createdAt = $value;
-
-        return $this;
-    }
-
     protected $artist;
 
     public function getArtist()
@@ -53,30 +39,40 @@ class Album
         return $this;
     }
 
-    protected $album;
+    protected $song;
 
-    /**
-     * Parent Album
-     *
-     * @return null|Album
-     */
-    public function getAlbum()
+    public function getSong()
     {
-        return $this->album;
+        return $this->song;
     }
 
-    /**
-     * Parent Album
-     *
-     * @param null|Album $album
-     * @return $this
-     */
-    public function setAlbum($album)
+    public function addSong($song)
     {
-        if (null !== $album && !$album instanceof Album) {
-            throw new \InvalidArgumentException('Invalid album argument');
+        if ($song instanceof \Db\Entity\Song) {
+            $this->song[] = $song;
+        } elseif ($song instanceof ArrayCollection) {
+            foreach ($song as $s) {
+                if (! $s instanceof \Db\Entity\Song) {
+                    throw new \Exception('Invalid type in addAlbum');
+                }
+                $this->song->add($s);
+            }
         }
-        $this->album = $album;
+
         return $this;
+    }
+
+    public function removeSong($song)
+    {
+        if ($song instanceof \Db\Entity\Song) {
+            $this->song[] = $song;
+        } elseif ($song instanceof ArrayCollection) {
+            foreach ($song as $s) {
+                if (! $s instanceof \Db\Entity\Song) {
+                    throw new \Exception('Invalid type remove addSong');
+                }
+                $this->song->removeElement($s);
+            }
+        }
     }
 }
