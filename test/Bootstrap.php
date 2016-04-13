@@ -1,6 +1,6 @@
 <?php
 
-namespace AlbumTest;
+namespace ZFTest;
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
@@ -30,18 +30,16 @@ class Bootstrap
         static::initAutoloader();
 
         // use ModuleManager to load this module and it's dependencies
-        $config = array(
-            'module_listener_options' => array(
-                'module_paths' => $zf2ModulePaths,
-            ),
-            'modules' => array(
-                'Album'
-            )
+        $config = include __DIR__ . '/config/application.config.php';
+
+        $config['module_listener_options'] = array(
+            'module_paths' => $zf2ModulePaths,
         );
 
         $serviceManager = new ServiceManager(new ServiceManagerConfig());
         $serviceManager->setService('ApplicationConfig', $config);
         $serviceManager->get('ModuleManager')->loadModules();
+
         static::$serviceManager = $serviceManager;
     }
 

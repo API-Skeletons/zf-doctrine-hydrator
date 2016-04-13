@@ -6,7 +6,12 @@
         "phpro/zf-doctrine-hydration-module": "^0.1.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "zfcampus/zf-apigility-doctrine": "^2",
+        "doctrine/doctrine-orm-module": "*",
+        "zendframework/zend-serializer": "*",
+        "zendframework/zend-log": "*",
+        "zendframework/Zend-i18n": "*"
     },
     "license": "MIT",
     "authors": [
