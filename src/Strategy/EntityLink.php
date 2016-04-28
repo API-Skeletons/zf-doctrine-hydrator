@@ -102,6 +102,6 @@ class EntityLink implements
 
     public function hydrate($value)
     {
-	return $value;
+        return $value;
     }
 }
