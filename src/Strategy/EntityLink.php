@@ -102,6 +102,6 @@ class EntityLink implements
 
     public function hydrate($value)
     {
-        // This strategy does note support hydration of collections.
+	return $value;
     }
 }
