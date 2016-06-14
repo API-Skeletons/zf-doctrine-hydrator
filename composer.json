@@ -3,7 +3,7 @@
     "description": "A collection of common hydrators for phpro/zf-doctrine-hydration-module",
     "type": "library",
     "require": {
-        "phpro/zf-doctrine-hydration-module": "^0.1.6"
+        "phpro/zf-doctrine-hydration-module": "^2.0"
     },
     "require-dev": {
         "zfcampus/zf-apigility-doctrine": "^2",
