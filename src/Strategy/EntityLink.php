@@ -82,6 +82,10 @@ class EntityLink implements
      */
     public function extract($value)
     {
+        if (is_null($value)) {
+            return $value;
+        }
+
         $entityValues = $this->getHydratorForEntity($value)->extract($value);
         $entityMetadata = $this->getMetadataMap()[ClassUtils::getRealClass(get_class($value))];
 
