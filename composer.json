@@ -4,10 +4,10 @@
     "type": "library",
     "require": {
         "phpro/zf-doctrine-hydration-module": "^2.0",
-        "zendframework/zend-eventmanager": "^2.4"
+        "zendframework/zend-eventmanager": "^2.4",
+        "zfcampus/zf-apigility-doctrine": "2.0.5-beta"
     },
     "require-dev": {
-        "zfcampus/zf-apigility-doctrine": "^2.0.5-dev",
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*",
         "zfcampus/zf-apigility": "*",
