@@ -65,23 +65,3 @@ class StrategyTest extends AbstractHttpControllerTestCase
         $this->assertEquals(1, sizeof($body['_embedded']['album'][0]['_embedded']['artist']));
     }
 }
-
-
-
-/*
-use PHPUnit_Framework_TestCase;
-use ZFTest\Doctrine\Hydrator\Bootstrap;
-
-class StrategyTest extends PHPUnit_Framework_TestCase
-{
-    public function testCollectionLink()
-    {
-        $serviceManager = Bootstrap::getApplication()->getServiceManager();
-        $objectManager = $serviceManager->get('doctrine.entitymanager.orm_default');
-
-        $artist = $objectManager->getRepository('Db\Entity\Artist')->find(1);
-
-        $this->assertEquals('Soft Cell', $artist->getName());
-    }
-}
-*/
