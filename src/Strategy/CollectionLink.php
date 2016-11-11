@@ -2,7 +2,7 @@
 
 namespace ZF\Doctrine\Hydrator\Strategy;
 
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
+use Zend\Hydrator\Strategy\StrategyInterface;
 use Zend\Filter\FilterChain;
 use DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy;
 use ZF\Hal\Link\LinkCollection;
