@@ -3,9 +3,9 @@
     "description": "A collection of common hydrators for phpro/zf-doctrine-hydration-module",
     "type": "library",
     "require": {
-        "phpro/zf-doctrine-hydration-module": "^2.0",
+        "phpro/zf-doctrine-hydration-module": "^3.0",
         "zendframework/zend-eventmanager": "^2.4",
-        "zfcampus/zf-apigility-doctrine": "2.0.5-beta"
+        "zfcampus/zf-apigility-doctrine": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
@@ -19,7 +19,8 @@
         "zendframework/zend-log": "*",
         "zendframework/zend-config": "*",
         "zendframework/zend-console": "*",
-        "zendframework/zend-i18n": "*"
+        "zendframework/zend-i18n": "*",
+        "zendframework/zend-servicemanager": "^2.4"
     },
     "license": "MIT",
     "authors": [
