@@ -5,7 +5,7 @@
     "require": {
         "phpro/zf-doctrine-hydration-module": "^3.0",
         "zendframework/zend-eventmanager": "^3.0",
-        "zfcampus/zf-apigility-doctrine": "^3.0"
+        "zfcampus/zf-apigility-doctrine": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
