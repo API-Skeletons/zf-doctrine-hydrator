@@ -5,7 +5,9 @@
     "require": {
         "phpro/zf-doctrine-hydration-module": "^3.0",
         "zendframework/zend-eventmanager": "^2.4 || ~3.0",
-        "zfcampus/zf-apigility-doctrine": "^2.0"
+        "zfcampus/zf-apigility-doctrine": "^2.0",
+        "zendframework/zend-servicemanager": "^3.0",
+        "zendframework/zend-modulemanager": "^2.7"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
@@ -19,8 +21,7 @@
         "zendframework/zend-log": "*",
         "zendframework/zend-config": "*",
         "zendframework/zend-console": "*",
-        "zendframework/zend-i18n": "*",
-        "zendframework/zend-servicemanager": "^2.4"
+        "zendframework/zend-i18n": "*"
     },
     "license": "MIT",
     "authors": [
