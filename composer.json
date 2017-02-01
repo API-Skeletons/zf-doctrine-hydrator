@@ -42,5 +42,10 @@
         "classmap": [
             "Module.php"
         ]
+    },
+    "extra": {
+        "zf": {
+            "module": "ZF\\Doctrine\\Hydrator"
+        }
     }
 }
