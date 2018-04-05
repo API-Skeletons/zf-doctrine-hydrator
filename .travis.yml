@@ -5,15 +5,9 @@ language: php
 matrix: 
   fast_finish: true
   include:
-    - php: 5.6
-      env:
-        EXECUTE_CS_CHECK=true
-    - php: 7
+    - php: 7.1
       env:
         EXECUTE_COVERAGE=true
-    - php: hhvm
-  allow_failures:
-    - php: hhvm
 
 before_install:
   - if [[ $EXECUTE_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
@@ -25,5 +19,5 @@ install:
 script:
   - mkdir -p build/logs
   - ./vendor/bin/phpunit
-  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/phpcs --standard=PSR2 --ignore=test/Bootstrap.php src test; fi
+  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/phpcs; fi
 

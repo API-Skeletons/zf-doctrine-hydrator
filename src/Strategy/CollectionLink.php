@@ -59,24 +59,24 @@ class CollectionLink extends AbstractCollectionStrategy implements
             ->attachByName('StringToLower');
 
         // Better way to create mapping name?
-        // FIXME: use zf-hal collection_name
+        // use zf-hal collection_name
         $link = new Link('self');
         $link->setRoute($config['route_name']);
-        $link->setRouteParams(array('id' => null));
+        $link->setRouteParams(['id' => null]);
 
-        $filterValue = array(
+        $filterValue = [
             'field' => $value->getMapping()['mappedBy'] ? : $value->getMapping()['inversedBy'],
             'type' =>isset($value->getMapping()['joinTable']) ? 'ismemberof' : 'eq',
             'value' => $value->getOwner()->getId(),
-        );
+        ];
 
-        $link->setRouteOptions(array(
-            'query' => array(
-                $this->getFilterKey() => array(
+        $link->setRouteOptions([
+            'query' => [
+                $this->getFilterKey() => [
                     $filterValue,
-                ),
-            ),
-        ));
+                ],
+            ],
+        ]);
 
         $linkCollection = new LinkCollection();
         $linkCollection->add($link);

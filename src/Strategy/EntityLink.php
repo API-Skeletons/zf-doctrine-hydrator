@@ -91,9 +91,9 @@ class EntityLink implements
 
         $link = new Link('self');
         $link->setRoute($entityMetadata['route_name']);
-        $link->setRouteParams(array(
+        $link->setRouteParams([
             $entityMetadata['route_identifier_name'] => $entityValues[$entityMetadata['entity_identifier_name']]
-        ));
+        ]);
 
         $linkCollection = new LinkCollection();
         $linkCollection->add($link);

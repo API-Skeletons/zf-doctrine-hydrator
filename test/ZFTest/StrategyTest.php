@@ -41,10 +41,10 @@ class StrategyTest extends AbstractHttpControllerTestCase
     public function testTrue()
     {
         $this->getRequest()->getHeaders()->addHeaders(
-            array(
+            [
                 'Accept' => 'application/json',
                 'Content-type' => 'application/json',
-            )
+            ]
         );
 
         $this->getRequest()->setMethod(Request::METHOD_GET);
