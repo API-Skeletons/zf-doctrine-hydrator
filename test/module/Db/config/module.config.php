@@ -2,18 +2,18 @@
 
 namespace Db;
 
-return array(
-    'doctrine' => array(
-        'driver' => array(
-           'db_driver' => array(
+return [
+    'doctrine' => [
+        'driver' => [
+            'db_driver' => [
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => array(__DIR__ . '/orm'),
-            ),
-            'orm_default' => array(
-                'drivers' => array(
+                'paths' => [__DIR__ . '/orm'],
+            ],
+            'orm_default' => [
+                'drivers' => [
                     __NAMESPACE__ . '\Entity' => 'db_driver',
-                ),
-            ),
-        ),
-    ),
-);
+                ],
+            ],
+        ],
+    ],
+];
