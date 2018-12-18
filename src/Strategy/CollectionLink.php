@@ -58,11 +58,9 @@ class CollectionLink extends AbstractCollectionStrategy implements
             ->attachByName('WordCamelCaseToUnderscore')
             ->attachByName('StringToLower');
 
-        // Better way to create mapping name?
-        // use zf-hal collection_name
         $link = new Link('self');
         $link->setRoute($config['route_name']);
-        $link->setRouteParams(['id' => null]);
+        $link->setRouteParams([$config['route_identifier_name'] => null]);
 
         $filterValue = [
             'field' => $value->getMapping()['mappedBy'] ? : $value->getMapping()['inversedBy'],
