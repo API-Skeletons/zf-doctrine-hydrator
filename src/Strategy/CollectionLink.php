@@ -5,6 +5,7 @@ namespace ZF\Doctrine\Hydrator\Strategy;
 use Zend\Hydrator\Strategy\StrategyInterface;
 use Zend\Filter\FilterChain;
 use DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy;
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use ZF\Hal\Link\LinkCollection;
 use ZF\Hal\Entity as HalEntity;
 use ZF\Hal\Link\Link;
@@ -62,9 +63,20 @@ class CollectionLink extends AbstractCollectionStrategy implements
         $link->setRoute($config['route_name']);
         $link->setRouteParams([$config['route_identifier_name'] => null]);
 
+        if (isset($value->getMapping()['joinTable'])
+            || (
+                isset($value->getMapping()['type'])
+                && $value->getMapping()['type'] === ClassMetadataInfo::MANY_TO_MANY
+            )
+        ) {
+            $type = 'ismemberof';
+        } else {
+            $type = 'eq';
+        }
+
         $filterValue = [
             'field' => $value->getMapping()['mappedBy'] ? : $value->getMapping()['inversedBy'],
-            'type' =>isset($value->getMapping()['joinTable']) ? 'ismemberof' : 'eq',
+            'type' => $type,
             'value' => $value->getOwner()->getId(),
         ];
 
